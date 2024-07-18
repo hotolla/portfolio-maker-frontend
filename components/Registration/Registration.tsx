@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@/components/TextField';
 import { useAuth } from '@/components/AuthProvider';
 import { preventDefault } from '@/helpers/preventDefault';
+import { SignIn } from '@/components/ui/sign-in';
 
 interface FormValues {
   name: string | null,
@@ -33,7 +34,7 @@ const schema = object({
   confirmPassword: string().nullable().required()
 });
 
-export const Registration = () => {
+export const Registration = async () => {
   const router = useRouter();
   const form = useForm({
     defaultValues,
@@ -42,10 +43,8 @@ export const Registration = () => {
   const { register } = useAuth();
 
   const handleSubmit = (values: FormValues) => {
-    console.log(values);
     authApi.register(values)
     .then((data) => {
-      console.log(values);
       register(data);
         router.push('/home');
       });
@@ -65,6 +64,17 @@ export const Registration = () => {
         <Grid item>
           <FormProvider {...form}>
             <Grid container direction="column" alignItems="center">
+              {/*if(!session) ? (*/}
+              <Grid item>
+                <Stack alignItems="center">
+
+                  <Typography variant="h5" color="primary" mt={1}>
+                    Magic link &#9733;
+                  </Typography>
+                  <SignIn/>
+                </Stack>
+              </Grid>
+
               <Grid item>
                 <Stack alignItems="center">
 

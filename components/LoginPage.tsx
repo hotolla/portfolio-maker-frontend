@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Yup } from '@/validation';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useMutation } from '@tanstack/react-query';
 import { Button, Typography, Container, Stack } from '@mui/material';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import * as authApi from '@/api/auth';
@@ -35,21 +34,13 @@ export const LoginPage = () => {
   });
   const { login } = useAuth();
 
-  const userMutation = useMutation({
-    mutationFn: (formData: FormValues) => {
-      return authApi.login(formData);
-    }
-  });
-
-  const handleSubmit = async (values: FormValues) => {
-    try {
-      const data = await userMutation.mutateAsync(values);
-      console.log(data);
+  const handleSubmit = (values: FormValues) => {
+    authApi.login(values).then((data) => {
       login(data);
-      router.push('/home');
-    } catch (error) {
+      router.push('/create%20portfolio');
+    }).catch(() => {
       setIsError(true);
-    }
+    });
   };
 
   return (

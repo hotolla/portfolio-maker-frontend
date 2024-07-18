@@ -16,7 +16,7 @@ import LoginIcon from '@mui/icons-material/Login';
 // import { useAuth } from '@/components/AuthProvider';
 import { useTheme } from '@mui/material/styles';
 
-const pages = [ 'Home', 'Create Portfolio', 'Update portfolio', 'View portfolio' ];
+const pages = [ 'home', 'create portfolio', 'update portfolio', 'view portfolio' ];
 
 export const Header = () => {
   const theme = useTheme();
