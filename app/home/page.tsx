@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Box
-        mt={1}
         sx={{
           position: 'relative',
           backgroundImage: 'url(view.png)',
@@ -56,7 +55,7 @@ export default function Home() {
         </Box>
       </Box>
 
-      <HeaderTypography variant="h3" gutterBottom>
+      <HeaderTypography>
         Get Started Today!
       </HeaderTypography>
 
