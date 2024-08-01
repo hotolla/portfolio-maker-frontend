@@ -2,16 +2,14 @@
 
 import { useForm, FormProvider } from 'react-hook-form';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { object, string } from 'yup';
-import { Button, Typography, Stack, Box, Grid } from '@mui/material';
+import { Button, Typography, Stack, Grid } from '@mui/material';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import * as authApi from '@/api/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@/components/TextField';
 import { useAuth } from '@/components/AuthProvider';
 import { preventDefault } from '@/helpers/preventDefault';
-import { SignIn } from '@/components/ui/sign-in';
 
 interface FormValues {
   name: string | null,
@@ -35,8 +33,7 @@ const schema = object({
 });
 
 export const Registration = async () => {
-  const router = useRouter();
-  const form = useForm({
+   const form = useForm({
     defaultValues,
     resolver: yupResolver(schema)
   });
@@ -46,35 +43,14 @@ export const Registration = async () => {
     authApi.register(values)
     .then((data) => {
       register(data);
-        router.push('/home');
+        // router.push('/home');
       });
   };
-
   return (
-    <Box>
-      <Typography variant="h3" color="primary" align="center" mb={1}>
-        Welcome to Portfolio Maker!
-      </Typography>
-
-      <Typography variant="body1" color="textSecondary" align="center" mt={2}>
-        Create the portfolio of your dreams with ease and joy. Your projects deserve the best showcase!
-      </Typography>
-
-      <Grid container justifyContent="center" alignItems="center" spacing={15}>
+    <Grid container justifyContent="center" alignItems="center" spacing={15}>
         <Grid item>
           <FormProvider {...form}>
             <Grid container direction="column" alignItems="center">
-              {/*if(!session) ? (*/}
-              <Grid item>
-                <Stack alignItems="center">
-
-                  <Typography variant="h5" color="primary" mt={1}>
-                    Magic link &#9733;
-                  </Typography>
-                  <SignIn/>
-                </Stack>
-              </Grid>
-
               <Grid item>
                 <Stack alignItems="center">
 
@@ -146,6 +122,6 @@ export const Registration = async () => {
           </FormProvider>
         </Grid>
       </Grid>
-    </Box>
   );
 };
+

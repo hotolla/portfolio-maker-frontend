@@ -1,19 +1,17 @@
-// import NextAuth from 'next-auth';
-// import { db } from '@/server';
-// import { DrizzleAdapter } from '@auth/drizzle-adapter';
-// import { accounts, verificationTokens, users } from '@/server/schema';
-// import Github from 'next-auth/providers/github';
-// import Resend from 'next-auth/providers/resend';
-//
-// export const { handlers, signIn, signOut, auth } = NextAuth({
-//   adapter: DrizzleAdapter(db, {
-//     verificationTokensTable: verificationTokens,
-//     accountsTable: accounts,
-//     usersTable: users
-//   }),
-//   secret:process.env.AUTH_SECRET,
-//   providers: [ Github, Resend({
-//     // from: 'koltsova.tech'
-//     from: 'hotolla@gmail.com'
-//   }) ]
-// });
+import NextAuth from 'next-auth';
+import GitHub from 'next-auth/providers/github';
+import clientPromise from '@/server/lib/db';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
+import Resend from '@auth/core/providers/resend';
+
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  adapter: MongoDBAdapter(clientPromise),
+  secret: process.env.AUTH_SECRET,
+  providers: [
+    GitHub,
+    Resend({
+      apiKey: process.env.AUTH_RESEND_KEY,
+      from: 'olla@koltsova.tech'
+    })
+  ]
+});

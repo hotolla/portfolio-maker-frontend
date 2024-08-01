@@ -5,7 +5,6 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { Yup } from '@/validation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Typography, Container, Stack } from '@mui/material';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
 import * as authApi from '@/api/auth';
 import { TextField } from '@/components/TextField';
 import { useAuth } from '@/components/AuthProvider';
@@ -47,8 +46,6 @@ export const LoginPage = () => {
     <Container maxWidth="xs">
       <FormProvider {...form}>
         <Stack sx={{ alignItems: 'center' }}>
-          <LockOpenIcon  color="primary" fontSize="large"/>
-
           <Typography variant="h5" color="primary" mt={1}>
             Login to account:
           </Typography>
@@ -65,8 +62,8 @@ export const LoginPage = () => {
             required
             type="email"
             name="email"
-            label="E-mail address"
-            placeholder="Enter e-mail ..."
+            label="Email address"
+            placeholder="Enter email ..."
           />
 
           <TextField
@@ -88,9 +85,8 @@ export const LoginPage = () => {
           <Button
             type="submit"
             variant="contained"
-            size="large"
           >
-            Login
+            Log in
           </Button>
 
           <Typography>

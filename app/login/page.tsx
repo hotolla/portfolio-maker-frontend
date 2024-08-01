@@ -1,12 +1,9 @@
 'use client';
 
-import { Container } from '@mui/material';
-import { LoginPage } from '@/components/LoginPage';
+import { Welcome } from '@/components/Welcome';
 
 export default function Page() {
   return (
-    <Container maxWidth="xs">
-      <LoginPage />
-    </Container>
+    <Welcome />
   );
 };

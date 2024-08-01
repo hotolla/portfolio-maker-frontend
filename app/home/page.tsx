@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Box
-        my={4}
+        mt={1}
         sx={{
           position: 'relative',
           backgroundImage: 'url(view.png)',
@@ -54,6 +54,18 @@ export default function Home() {
             we are here to help you showcase your work in the most compelling way possible.
           </Typography>
         </Box>
+      </Box>
+
+      <HeaderTypography variant="h3" gutterBottom>
+        Get Started Today!
+      </HeaderTypography>
+
+      <Box textAlign="center">
+        <Link href="/create-portfolio" passHref legacyBehavior>
+          <Button variant="contained" color="error">
+            CREATE PORTFOLIO
+          </Button>
+        </Link>
       </Box>
 
       <HeaderTypography>
@@ -152,18 +164,6 @@ export default function Home() {
           </Card>
         </Grid>
       </Grid>
-
-      <HeaderTypography variant="h3" gutterBottom>
-        Get Started Today!
-      </HeaderTypography>
-
-      <Box textAlign="center">
-        <Link href="/create%20portfolio" passHref legacyBehavior>
-          <Button variant="contained" color="error">
-            CREATE PORTFOLIO
-          </Button>
-        </Link>
-      </Box>
 
       <Box mt={4}>
         <HeaderTypography>
