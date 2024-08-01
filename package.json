@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^3.4.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.6.0",
@@ -18,7 +19,10 @@
     "@mui/material": "^5.15.20",
     "@tanstack/react-query": "^5.45.1",
     "axios": "^1.7.2",
+    "drizzle-orm": "^0.32.0",
+    "mongodb": "^6.8.0",
     "next": "14.2.4",
+    "next-auth": "^5.0.0-beta.19",
     "react": "^18",
     "react-dom": "^18",
     "react-dropzone": "^14.2.3",
@@ -29,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.23.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "typescript": "^5"
