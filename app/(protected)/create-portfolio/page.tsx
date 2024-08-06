@@ -7,7 +7,6 @@ import { Button, Typography, Stack, Box, Grid } from '@mui/material';
 import * as authApi from '@/api/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@/components/TextField';
-import { useAuth } from '@/components/AuthProvider';
 import { HeaderTypography } from '@/components/HeaderTypography';
 import { Dropzone } from '@/components/Dropzone';
 
@@ -59,12 +58,10 @@ export default function CreatePortfolio() {
     defaultValues,
     resolver: yupResolver(schema)
   });
-  const { register } = useAuth();
 
   const handleSubmit = (values: FormValues) => {
     authApi.register(values)
       .then((data) => {
-        register(data);
         router.push('/home');
       });
   };

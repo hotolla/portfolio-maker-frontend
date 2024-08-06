@@ -2,7 +2,6 @@
 
 import { PropsWithChildren } from 'react';
 import { MainLayout } from '@/components/MainLayout';
-import { AuthProvider } from '@/components/AuthProvider';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
@@ -14,9 +13,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     </head>
 
     <body>
-      <AuthProvider>
-        <MainLayout>{children}</MainLayout>
-      </AuthProvider>
+      <MainLayout>{children}</MainLayout>
     </body>
     </html>
   );

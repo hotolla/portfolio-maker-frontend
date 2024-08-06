@@ -1,12 +1,9 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import { Container, Typography, Grid, Card, CardContent, Button, Box } from '@mui/material';
 import { HeaderTypography } from '@/components/HeaderTypography';
-import { theme } from '@/themes/themes';
 
-export default function Home() {
+export default async function Home() {
   return (
     <Container maxWidth="lg">
       <Box
@@ -44,7 +41,7 @@ export default function Home() {
             textAlign: 'center'
           }}
         >
-          <HeaderTypography sx={{ fontWeight: 800, color: theme.palette.error.main, fontSize: '2.5rem' }}>
+          <HeaderTypography sx={{ fontWeight: 800, color: 'error.main', fontSize: '2.5rem' }}>
             Welcome to Portfolio Maker!
           </HeaderTypography>
           <Typography variant="h6" align="center" gutterBottom>
