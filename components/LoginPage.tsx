@@ -7,7 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Typography, Container, Stack } from '@mui/material';
 import * as authApi from '@/api/auth';
 import { TextField } from '@/components/TextField';
-import { useAuth } from '@/components/AuthProvider';
 
 interface FormValues {
   email: string | null,
@@ -31,12 +30,10 @@ export const LoginPage = () => {
     defaultValues,
     resolver: yupResolver(validationSchema)
   });
-  const { login } = useAuth();
 
   const handleSubmit = (values: FormValues) => {
     authApi.login(values).then((data) => {
-      login(data);
-      router.push('/create%20portfolio');
+      router.push('/create-portfolio');
     }).catch(() => {
       setIsError(true);
     });

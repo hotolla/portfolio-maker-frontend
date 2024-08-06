@@ -8,7 +8,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import * as authApi from '@/api/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@/components/TextField';
-import { useAuth } from '@/components/AuthProvider';
+// import { useAuth } from '@/components/AuthProvider';
 import { preventDefault } from '@/helpers/preventDefault';
 
 interface FormValues {
@@ -37,12 +37,12 @@ export const Registration = async () => {
     defaultValues,
     resolver: yupResolver(schema)
   });
-  const { register } = useAuth();
+  // const { register } = useAuth();
 
   const handleSubmit = (values: FormValues) => {
     authApi.register(values)
     .then((data) => {
-      register(data);
+      // register(data);
         // router.push('/home');
       });
   };

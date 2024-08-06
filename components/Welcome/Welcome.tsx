@@ -7,8 +7,6 @@ import { auth } from '@/server/auth';
 import { SignOut } from '@/components/ui/SignOut';
 
 export const Welcome = async () => {
- // const session = await auth();
- //  console.log(session);
   return (
     <Container maxWidth="md">
       <Typography variant="h4" color="primary" align="center" mb={1}>

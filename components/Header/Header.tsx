@@ -1,5 +1,3 @@
-// 'use client';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
@@ -13,7 +11,6 @@ import {
 import Image from 'next/image';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
-import { useAuth } from '@/components/AuthProvider';
 import { SignOut } from '@/components/ui/SignOut';
 
 const pages = [
@@ -36,7 +33,6 @@ const pages = [
 ];
 
 export const Header = () => {
-  const { isAuthenticated, user, logout } = useAuth();
   const [ isClient, setIsClient ] = useState(false);
 
   useEffect(() => {
@@ -64,13 +60,15 @@ export const Header = () => {
           ))}
         </Box>
 
-        <Tooltip title={user?.name}>
+        {/*<Tooltip title={user?.name}>*/}
+        <Tooltip title={'user'}>
           <IconButton color="primary">
             <AccountCircleIcon />
           </IconButton>
         </Tooltip>
 
-        {isClient && isAuthenticated ? (
+        {/*{isClient && isAuthenticated ? (*/}
+        {isClient ? (
           // onClick={logout}
           <SignOut/>
         ) : (

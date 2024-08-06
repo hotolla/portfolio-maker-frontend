@@ -1,3 +1,5 @@
+'use client';
+
 import { createTheme } from '@mui/material';
 import { palette } from '@/themes/palette';
 import { components } from '@/themes/components';
